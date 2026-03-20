@@ -13,9 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         //
-        // $middleware->preventRequestForgery(except:[
-        //     'restaurants'
-        // ]);
+        $middleware->preventRequestForgery(except:[
+            'restaurants'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

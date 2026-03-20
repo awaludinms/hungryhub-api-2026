@@ -28,7 +28,7 @@ class RestaurantStore
             return $this->success('Restaurant success saved');
 
         } catch (\Exception $e) {
-            return $this->failed('Restaurant fail to save');
+            return $this->failed('Restaurant fail to save', $e);
         }
     }
 }

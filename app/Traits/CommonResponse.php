@@ -12,15 +12,17 @@ trait CommonResponse
         //
         return response()->json([
             'message' => $message,
+            'errors' => null,
             'success' => true,
-        ]);
+        ], 200);
     }
 
-    public function failed($message)
+    public function failed($message, $error)
     {
         return response()->json([
             'message' => $message,
+            'errors' => (env('APP_DEBUG')) ? $error->getMessage() : 'Internal Server Error',
             'success' => false,
-        ]);
+        ], 500);
     }
 }

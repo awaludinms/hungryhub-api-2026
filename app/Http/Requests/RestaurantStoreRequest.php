@@ -26,6 +26,8 @@ class RestaurantStoreRequest extends FormRequest
             //
             'name' => 'required',
             'address' => 'required',
+            'phone' => 'nullable',
+            'opening_hours' => 'nullable',
         ];
     }
 }
