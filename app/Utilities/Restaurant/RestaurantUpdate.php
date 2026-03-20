@@ -7,13 +7,13 @@ use App\Http\Resources\SuccessResource;
 use App\Models\Restaurant;
 use App\Traits\CommonResponse;
 
-class RestaurantStore
+class RestaurantUpdate
 {
     use CommonResponse;
     /**
      * Create a new class instance.
      */
-    public function store($request)
+    public function update($request, $id)
     {
         //
         $validated = $request->validated();
@@ -23,12 +23,13 @@ class RestaurantStore
         $validated['created_at'] = date('Y-m-d');
 
         try {
-            Restaurant::insert($validated);
+            Restaurant::where('id', $id)
+                ->update($validated);
 
-            return $this->success('Restaurant success saved', $validated);
+            return $this->success('Restaurant success update', $validated);
 
         } catch (\Exception $e) {
-            return $this->failed('Restaurant fail to save', $e, $validated);
+            return $this->failed('Restaurant fail to update', $e, $validated);
         }
     }
 }

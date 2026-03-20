@@ -18,4 +18,10 @@ class RestaurantUtility
         //
         return($restaurant->store($request));
     }
+
+    public function update($restaurant, $request, $id)
+    {
+        //
+        return($restaurant->update($request, $id));
+    }
 }

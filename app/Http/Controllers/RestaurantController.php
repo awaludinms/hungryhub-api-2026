@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RestaurantStoreRequest;
-use App\Http\Resources\RestaurantResource;
-use App\Models\Restaurant;
+use App\Http\Requests\Restaurant\RestaurantStoreRequest;
+use App\Http\Requests\Restaurant\RestaurantUpdateRequest;
 
+use App\Utilities\Restaurant\RestaurantUpdate;
 use App\Utilities\RestaurantUtility;
 use App\Utilities\Restaurant\RestaurantList;
 use App\Utilities\Restaurant\RestaurantStore;
@@ -43,9 +43,9 @@ class RestaurantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(RestaurantUtility $utility, RestaurantUpdate $restaurants, RestaurantUpdateRequest $request, string $restaurant)
     {
-        //
+        return $utility->update($restaurants, $request, $restaurant);
     }
 
     /**
