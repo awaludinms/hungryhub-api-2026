@@ -23,11 +23,14 @@ class RestaurantUpdate
         $validated['created_at'] = date('Y-m-d');
 
         try {
-            Restaurant::where('id', $id)
-                ->update($validated);
+            if (Restaurant::where('id', $id)->exists()) {
+                Restaurant::where('id', $id)
+                    ->update($validated);
 
-            return $this->success('Restaurant success update', $validated);
-
+                return $this->success('Restaurant success update', $validated, $id);
+            } else {
+                return $this->page404("Restaurant ID=$id is not exists");
+            }
         } catch (\Exception $e) {
             return $this->failed('Restaurant fail to update', $e, $validated);
         }

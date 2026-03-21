@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('address');
-            $table->string('phone');
-            $table->string('opening_hours');
+            $table->string('phone')->default('');
+            $table->string('opening_hours')->default('');
             $table->timestamps();
         });
     }

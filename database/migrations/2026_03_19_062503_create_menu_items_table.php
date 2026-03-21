@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable()->default('');
+            $table->double('price');
+            $table->string('category')->nullable()->default('');
+            $table->boolean('is_available')->default(true);
+            $table->foreignId('restaurant_id')->constrained();
             $table->timestamps();
         });
     }

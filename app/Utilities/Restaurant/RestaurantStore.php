@@ -17,15 +17,12 @@ class RestaurantStore
     {
         //
         $validated = $request->validated();
-
-        $validated['phone'] = $request->has('phone') ? $validated['phone'] : '';
-        $validated['opening_hours'] = $request->has('opening_hours') ? $validated['opening_hours'] : '';
         $validated['created_at'] = date('Y-m-d');
 
         try {
-            Restaurant::insert($validated);
+            $id = Restaurant::insertGetId($validated);
 
-            return $this->success('Restaurant success saved', $validated);
+            return $this->success('Restaurant success saved', $validated, $id);
 
         } catch (\Exception $e) {
             return $this->failed('Restaurant fail to save', $e, $validated);

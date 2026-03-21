@@ -7,21 +7,39 @@ class RestaurantUtility
     /**
      * Create a new class instance.
      */
-    public function list($restaurant)
+    public function list($restaurants)
     {
         //
-        return($restaurant->list());
+        return($restaurants->list());
     }
 
-    public function store($restaurant, $request)
+    public function store($restaurants, $request)
     {
         //
-        return($restaurant->store($request));
+        return($restaurants->store($request));
     }
 
-    public function update($restaurant, $request, $id)
+    public function update($restaurants, $request, $id)
     {
         //
-        return($restaurant->update($request, $id));
+        return($restaurants->update($request, $id));
+    }
+
+    public function detail($restaurants, $id)
+    {
+        //
+        return($restaurants->detail($id));
+    }
+
+    /**
+     * Add Menu in restaurant
+     *
+     * @param mixed $restaurants
+     * @param mixed $id
+     */
+    public function addMenu($restaurants, $request, $id)
+    {
+        //
+        return($restaurants->addMenu($request, $id));
     }
 }

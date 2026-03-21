@@ -7,14 +7,14 @@ trait CommonResponse
     /**
      * Create a new class instance.
      */
-    public function success($message, $data=[])
+    public function success($message, $data=[], $id)
     {
         //
         return response()->json([
             'message' => $message,
             'errors' => null,
             'success' => true,
-            'data' => $data
+            'data' => array_merge(['id' => $id], $data),
         ], 200);
     }
 
@@ -26,5 +26,12 @@ trait CommonResponse
             'success' => false,
             'data' => $data
         ], 500);
+    }
+
+    public function page404($message="Data tidak ditemukan")
+    {
+        return response()->json([
+            'message' => $message,
+        ], 404);
     }
 }
