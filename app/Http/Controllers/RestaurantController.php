@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Restaurant\RestaurantAddMenuRequest;
 use App\Http\Requests\Restaurant\RestaurantStoreRequest;
 use App\Http\Requests\Restaurant\RestaurantUpdateRequest;
 
@@ -18,6 +19,9 @@ class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @param RestaurantUtility $utility
+     * @param RestaurantList $restaurants
+     * @return \App\Http\Resources\RestaurantResource
      */
     public function index(RestaurantUtility $utility, RestaurantList $restaurants)
     {
@@ -28,6 +32,10 @@ class RestaurantController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param RestaurantUtility $utility
+     * @param RestaurantStore $restaurants
+     * @param RestaurantStoreRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(RestaurantUtility $utility, RestaurantStore $restaurants, RestaurantStoreRequest $request)
     {
@@ -35,7 +43,11 @@ class RestaurantController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified restaurant data with related menu item
+     * @param RestaurantUtility $utility
+     * @param RestaurantDetail $restaurants
+     * @param int $restaurant
+     * @return \App\Http\Resources\RestaurantResource|\Illuminate\Http\JsonResponse
      */
     public function show(RestaurantUtility $utility, RestaurantDetail $restaurants, int $restaurant)
     {
@@ -45,6 +57,11 @@ class RestaurantController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @param RestaurantUtility $utility
+     * @param RestaurantUpdate $restaurants
+     * @param RestaurantUpdateRequest $request
+     * @param int $restaurant
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(RestaurantUtility $utility, RestaurantUpdate $restaurants, RestaurantUpdateRequest $request, int $restaurant)
     {
@@ -60,13 +77,15 @@ class RestaurantController extends Controller
     }
 
     /**
-     * Add restaurant menu item
+     * Summary of menu_item
+     * @param RestaurantUtility $utility
+     * @param RestaurantAddMenuItem $restaurants
+     * @param RestaurantAddMenuRequest $request
      * @param int $id
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function menu_item(RestaurantUtility $utility, RestaurantAddMenuItem $restaurants, Request $request, int $id)
+    public function menu_item(RestaurantUtility $utility, RestaurantAddMenuItem $restaurants, RestaurantAddMenuRequest $request, int $id)
     {
-        // TODO: Add restaurant menu Item
         return $utility->addMenu($restaurants, $request, $id);
     }
 
