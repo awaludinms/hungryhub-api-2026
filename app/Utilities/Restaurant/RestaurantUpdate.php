@@ -17,9 +17,6 @@ class RestaurantUpdate
     {
         //
         $validated = $request->validated();
-
-        $validated['phone'] = $request->has('phone') ? $validated['phone'] : '';
-        $validated['opening_hours'] = $request->has('opening_hours') ? $validated['opening_hours'] : '';
         $validated['updated_at'] = date('Y-m-d');
 
         try {
