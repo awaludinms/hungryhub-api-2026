@@ -20,7 +20,7 @@ class RestaurantUpdate
 
         $validated['phone'] = $request->has('phone') ? $validated['phone'] : '';
         $validated['opening_hours'] = $request->has('opening_hours') ? $validated['opening_hours'] : '';
-        $validated['created_at'] = date('Y-m-d');
+        $validated['updated_at'] = date('Y-m-d');
 
         try {
             if (Restaurant::where('id', $id)->exists()) {
