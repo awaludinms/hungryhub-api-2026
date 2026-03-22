@@ -14,7 +14,7 @@ class RestaurantAddMenuItem
     /**
      * Create a new class instance.
      */
-    public function addMenu($request, $id)
+    public function add_menu($request, $id)
     {
         $validated = $request->validated();
         $validated['created_at'] = date('Y-m-d');

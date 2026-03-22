@@ -8,6 +8,7 @@ use App\Http\Requests\Restaurant\RestaurantUpdateRequest;
 
 use App\Utilities\Restaurant\RestaurantAddMenuItem;
 use App\Utilities\Restaurant\RestaurantDetail;
+use App\Utilities\Restaurant\RestaurantMenuItemList;
 use App\Utilities\Restaurant\RestaurantUpdate;
 use App\Utilities\RestaurantUtility;
 use App\Utilities\Restaurant\RestaurantList;
@@ -86,16 +87,19 @@ class RestaurantController extends Controller
      */
     public function menu_item(RestaurantUtility $utility, RestaurantAddMenuItem $restaurants, RestaurantAddMenuRequest $request, int $id)
     {
-        return $utility->addMenu($restaurants, $request, $id);
+        return $utility->add_menu($restaurants, $request, $id);
     }
 
     /**
+     *
      * List Menu Item
+     * @param RestaurantUtility $utility
+     * @param RestaurantMenuItemList $restaurants
      * @param int $id
-     * @return void
+     * @return \App\Http\Resources\RestaurantResource|\Illuminate\Http\JsonResponse
      */
-    public function menu_item_list(int $id)
+    public function menu_item_list(RestaurantUtility $utility, RestaurantMenuItemList $restaurants, Request $request, int $id)
     {
-        // TODO: List Menu Item support filter by category
+        return $utility->menu_list_item($restaurants, $request, $id);
     }
 }

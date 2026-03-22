@@ -5,6 +5,7 @@ namespace App\Utilities;
 use App\Utilities\Restaurant\RestaurantAddMenuItem;
 use App\Utilities\Restaurant\RestaurantDetail;
 use App\Utilities\Restaurant\RestaurantList;
+use App\Utilities\Restaurant\RestaurantMenuItemList;
 use App\Utilities\Restaurant\RestaurantStore;
 use App\Utilities\Restaurant\RestaurantUpdate;
 
@@ -43,9 +44,14 @@ class RestaurantUtility
      * @param mixed $restaurants
      * @param mixed $id
      */
-    public function addMenu(RestaurantAddMenuItem $restaurants, $request, $id)
+    public function add_menu(RestaurantAddMenuItem $restaurants, $request, $id)
     {
         //
-        return($restaurants->addMenu($request, $id));
+        return($restaurants->add_menu($request, $id));
+    }
+
+    public function menu_list_item(RestaurantMenuItemList $restaurants, $request, $id)
+    {
+        return $restaurants->menu_item_list($request, $id);
     }
 }
