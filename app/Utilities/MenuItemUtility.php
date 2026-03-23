@@ -3,6 +3,7 @@
 namespace App\Utilities;
 
 use App\Http\Requests\MenuItem\MenuItemUpdateRequest;
+use App\Utilities\MenuItem\MenuItemDelete;
 use App\Utilities\MenuItem\MenuItemUpdate;
 
 class MenuItemUtility
@@ -15,8 +16,8 @@ class MenuItemUtility
         return $menu_items->update($request, $id);
     }
 
-    public function destroy()
+    public function destroy(MenuItemDelete $menu_items, int $id)
     {
-
+        return $menu_items->destroy($id);
     }
 }

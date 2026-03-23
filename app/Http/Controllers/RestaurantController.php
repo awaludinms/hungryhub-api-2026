@@ -7,6 +7,7 @@ use App\Http\Requests\Restaurant\RestaurantStoreRequest;
 use App\Http\Requests\Restaurant\RestaurantUpdateRequest;
 
 use App\Utilities\Restaurant\RestaurantAddMenuItem;
+use App\Utilities\Restaurant\RestaurantDelete;
 use App\Utilities\Restaurant\RestaurantDetail;
 use App\Utilities\Restaurant\RestaurantMenuItemList;
 use App\Utilities\Restaurant\RestaurantUpdate;
@@ -72,9 +73,9 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id)
+    public function destroy(RestaurantUtility $utility, RestaurantDelete $restaurants, int $restaurant)
     {
-        //
+        return $utility->destroy($restaurants, $restaurant);
     }
 
     /**

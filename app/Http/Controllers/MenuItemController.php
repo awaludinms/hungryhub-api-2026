@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MenuItem\MenuItemUpdateRequest;
+use App\Utilities\MenuItem\MenuItemDelete;
 use App\Utilities\MenuItem\MenuItemUpdate;
 use App\Utilities\MenuItemUtility;
 use Illuminate\Http\Request;
@@ -23,8 +24,8 @@ class MenuItemController extends Controller
         return $utility->update($menu_items, $request, $menu_item);
     }
 
-    public function destroy()
+    public function destroy(MenuItemUtility $utility, MenuItemDelete $menu_items, int $menu_item)
     {
-
+        return $utility->destroy($menu_items, $menu_item);
     }
 }

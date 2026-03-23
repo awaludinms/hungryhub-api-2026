@@ -3,6 +3,7 @@
 namespace App\Utilities;
 
 use App\Utilities\Restaurant\RestaurantAddMenuItem;
+use App\Utilities\Restaurant\RestaurantDelete;
 use App\Utilities\Restaurant\RestaurantDetail;
 use App\Utilities\Restaurant\RestaurantList;
 use App\Utilities\Restaurant\RestaurantMenuItemList;
@@ -36,6 +37,11 @@ class RestaurantUtility
     {
         //
         return($restaurants->detail($id));
+    }
+
+    public function destroy(RestaurantDelete $restaurants, $id)
+    {
+        return ($restaurants->destroy($id));
     }
 
     /**
