@@ -19,6 +19,9 @@ class RestaurantMenuItemList
                     if ($request->has('category')) {
                         $query->whereCategory($request->category);
                     }
+                    if ($request->has('name')) {
+                        $query->whereLike('name', '%' . $request->name . '%');
+                    }
                 })
                 ->paginate(10));
         } else {
