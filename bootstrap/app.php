@@ -19,8 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->preventRequestForgery(except:[
             'restaurants',
             'restaurants/*',
-            'menu_items/*'
+            'menu_items/*',
+            'login'
         ]);
+        $middleware->preventRequestForgery(allowSameSite: true);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
