@@ -1,4 +1,4 @@
-### Instalasi API Hungryhub
+# Instalasi API Hungryhub
 
 ## Installing Composer
 
@@ -72,7 +72,7 @@ DB_PASSWORD='anypassword'
 
 And save it
 
-# Migrate and Database User, Restaurant and Menu Items' Seed
+## Migrate and Database User, Restaurant and Menu Items' Seed
 
 Run Database Migration and Seeders
 
