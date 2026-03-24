@@ -1,5 +1,6 @@
 ### Instalasi API Hungryhub
 
+## Installing Composer
 
 Prepare composer if you don't have one
 
@@ -18,6 +19,7 @@ put composer.phar in global PATH
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
+## Github Clone
 
 Run these command in your terminal
 
@@ -27,6 +29,8 @@ $ cd hungryhub-api-2026
 $ composer install
 $ cp .env.example .env
 ```
+
+## Database
 
 Run MariaDB to create database
 
@@ -68,12 +72,21 @@ DB_PASSWORD='anypassword'
 
 And save it
 
+# Migrate and Database User, Restaurant and Menu Items' Seed
+
 Run Database Migration and Seeders
 
 ```
 $ php artisan migrate
 $ php artisan db:seed
 ```
+
+Run Server
+
+```
+php artisan serve
+```
+
 
 
 
