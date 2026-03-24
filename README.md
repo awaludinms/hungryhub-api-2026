@@ -1,5 +1,6 @@
 ### Instalasi API Hungryhub
 
+
 Prepare composer if you don't have one
 
 ```php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -12,11 +13,13 @@ php -r "unlink('composer-setup.php');"
 ```
 
 
+
 put composer.phar in global PATH
 
 ```
 sudo mv composer.phar /usr/local/bin/composer
 ```
+
 
 Run these command in your terminal
 
@@ -37,11 +40,8 @@ run these command in mysql query line
 
 ```
 CREATE DATABASE dbhungryhub;
-
 CREATE USER hungryhubuser2@localhost IDENTIFIED BY 'anypassword';
-
 GRANT ALL PRIVILEGES ON dbhungryhub.* TO hungryhubuser2@localhost;
-
 FLUSH PRIVILEGES;
 ```
 
@@ -69,4 +69,7 @@ DB_PASSWORD='anypassword'
 ```
 
 And save it
+
+
+
 
