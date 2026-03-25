@@ -102,8 +102,11 @@ php artisan serve
 # Design Desicions
 
 In design decisions I use look like Repository Design, the different is I don't make **interface**.
+
 In this design I use **"Utility"** as a name like RestaurantUtility, MenuItemUtility
-I put it on **App/Utilites namespace**.
+
+I put utilties on **App/Utilites namespace**.
+
 On Every Utility like RestaurantUtility I place a directory inside utilites
 like this
 
@@ -117,13 +120,22 @@ app/
        ||==> RestaurantStore.php
        ||==> RestaurantUpdate.php
        ||==> RestaurantAddMenuItem.php
+       ...
+  ...
 ```
 
 Those directory tree is made according to route 
 for example
+
+```
 POST /restaurants/ --> Create Restaurant
+```
+
 so it will be
-utilities/Restaurant/RestaurantStore.php
+
+```
+Utilities/Restaurant/RestaurantStore.php
+```
 
 This desicision is to make easy to trace the process of API
 
