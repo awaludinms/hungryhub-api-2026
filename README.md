@@ -466,7 +466,7 @@ output: status **200** - Ok
 }
 ```
 
-## Restaurant's Menu
+## Restaurant's Detail
 enpoint: **GET /restaurants/:id**
 
 ```
