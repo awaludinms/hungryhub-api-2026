@@ -15,7 +15,23 @@ class RestaurantAddMenuItemTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function test_add_menu_item_with_name_and_price_got_error_422(): void
+    {
+        $this->seed();
+
+        Sanctum::actingAs(
+            User::factory()->create(),
+            ['*']
+        );
+
+        $response = $this->postJson('/restaurants/1/menu_items', [
+            'category' => 'main'
+        ]);
+
+        $response->assertStatus(422);
+    }
+
+     public function test_add_menu_item(): void
     {
         $this->seed();
 

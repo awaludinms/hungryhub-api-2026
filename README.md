@@ -90,6 +90,16 @@ php artisan db:seed
 ```
 
 
+## Run Test
+
+Run Test to make sure API is working properly
+
+```
+php artisan test
+```
+
+
+
 ## Run Server
 
 Run this command to run api server
@@ -97,6 +107,7 @@ Run this command to run api server
 ```
 php artisan serve
 ```
+
 
 
 # Design Desicions

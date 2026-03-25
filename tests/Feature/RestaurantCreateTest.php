@@ -25,7 +25,7 @@ class RestaurantCreateTest extends TestCase
         $response->assertStatus(401);
     }
 
-    public function test_create_restaurant_without_name_status_get_code_422(): void
+    public function test_create_restaurant_without_name_status_get_error_code_422(): void
     {
         Sanctum::actingAs(
             User::factory()->create(),
@@ -39,7 +39,7 @@ class RestaurantCreateTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_create_restaurant_without_address_status_get_code_422(): void
+    public function test_create_restaurant_without_address_status_get_error_code_422(): void
     {
         Sanctum::actingAs(
             User::factory()->create(),
