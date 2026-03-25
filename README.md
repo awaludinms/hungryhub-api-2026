@@ -106,15 +106,18 @@ In this design I use **"Utility"** as a name like RestaurantUtility, MenuItemUti
 I put it on **App/Utilites namespace**.
 On Every Utility like RestaurantUtility I place a directory inside utilites
 like this
-**app/**
+
+```
+app/
  ||
- ||==> **Utilities/**
+ ||==> Utilities/
  ||==> RestaurantUtility.php
- ||==> **Restaurant/**
-        ||
-        ||==> RestaurantStore.php
-        ||==> RestaurantUpdate.php
-        ||==> RestaurantAddMenuItem.php
+ ||==> Restaurant/
+ ||==>  ||
+ ||==>  ||==> RestaurantStore.php
+ ||==>  ||==> RestaurantUpdate.php
+ ||==>  ||==> RestaurantAddMenuItem.php
+```
 
 Those directory tree is made according to route 
 for example
