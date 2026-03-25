@@ -21,7 +21,7 @@ class RestaurantAddMenuItem
 
         if (Restaurant::where('id', $id)->exists()) {
             $validated['restaurant_id'] = $id;
-            $validated['is_available'] = ($validated['is_available']) ? 1 : 0;
+            $validated['is_available'] = isset($validated['is_available']) ? $validated['is_available'] : 1;
 
             try {
                 $id = MenuItem::insertGetId($validated);

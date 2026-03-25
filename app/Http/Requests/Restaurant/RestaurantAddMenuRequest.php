@@ -27,7 +27,7 @@ class RestaurantAddMenuRequest extends FormRequest
             'description' => 'nullable',
             'price' => 'numeric|required',
             'category' => 'string',
-            'is_available' => 'boolean'
+            'is_available' => 'nullable'
         ];
     }
 }
