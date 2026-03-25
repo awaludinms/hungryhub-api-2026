@@ -99,6 +99,49 @@ php artisan serve
 ```
 
 
+# API Structure and it's explanation
+
+| Method | API Endpoint                | Description                                |                                                       |
+| --------| -----------------------------| --------------------------------------------| -------------------------------------------------------|
+| POST   | /login                      | Login to get API token                     |                                                       |
+| POST   | /restaurants                | Create a restaurant                        |                                                       |
+| GET    | /restaurants                | List all restaurants                       |                                                       |
+| GET    | /restaurants/:id            | Get restaurant detail (include menu items) |                                                       |
+| PUT    | /restaurants/:id            | Update a restaurant                        |                                                       |
+| DELETE | /restaurants/:id            | Delete a restaurant                        |                                                       |
+| POST   | /restaurants/:id/menu_items | Add a menu item                            |                                                       |
+| GET    | /restaurants/:id/menu_items |                                            | List menu items (support filter by category and name) |
+| PUT    | /menu_items/:id             | Update a menu item                         |                                                       |
+| DELETE | /menu_items/:id             | Delete a menu item                         |                                                       |
+                                           
+
+# Run and the APIs
+
+This API using sanctum as authentication, to access every API in this app must login first to get **token** that will be placed on header request
+"Authentication" : API_TOKEN
+
+## Login to get 
+
+Run this command in terminal
+
+```
+curl --request POST \
+  --url http://localhost:8000/login \
+  --header 'Accept: applcation/json' \
+  --header 'content-type: application/json' \
+  --data '{
+  "email" : "admin@hungryhub.app",
+  "password"  : "adminpasssimple123!"
+}'
+```
+
+it will output like this, (Token value is vary for each request on login, below is on of generated token)
+
+```
+{"token":"3|anqg0iBoG4cHmv4sgmGXqxHFop6PJXJmY4vuHJHscca83139"}
+```
+
+The **curl** command will produce **token**, in this example, token value is **anqg0iBoG4cHmv4sgmGXqxHFop6PJXJmY4vuHJHscca83139**
 
 
 
