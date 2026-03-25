@@ -99,6 +99,90 @@ php artisan serve
 ```
 
 
+# Design Desicions
+
+In design decisions I use look like Repository Design, the different is I don't make **interface**.
+In this design I use **"Utility"** as a name like RestaurantUtility, MenuItemUtility
+I put it on **App/Utilites namespace**.
+On Every Utility like RestaurantUtility I place a directory inside utilites
+like this
+**app/**
+ ||
+ ||==> **Utilities/**
+ ||==> RestaurantUtility.php
+ ||==> **Restaurant/**
+        ||
+        ||==> RestaurantStore.php
+        ||==> RestaurantUpdate.php
+        ||==> RestaurantAddMenuItem.php
+
+Those directory tree is made according to route 
+for example
+POST /restaurants/ --> Create Restaurant
+so it will be
+utilities/Restaurant/RestaurantStore.php
+
+This desicision is to make easy to trace the process of API
+
+Below is the code
+
+From Controller to Process in Utility folder/namespace
+
+Controller snippets
+File: **RestaurantController.php**
+```
+...
+public function store(RestaurantUtility $utility, RestaurantStore $restaurants, RestaurantStoreRequest $request)
+{
+        return $utility->store($restaurants, $request);
+}
+...
+```
+
+Utility snippets
+File **Utilities/RestaurantUtility.php**
+```
+...
+public function store(RestaurantStore $restaurants, $request)
+{
+        //
+        return($restaurants->store($request));
+}
+...
+```
+
+And finally the Process snippet (only contains one methods)
+File: **Utilities/Restaurant/RestaurantStore**
+```
+...
+class RestaurantStore
+{
+    use CommonResponse;
+    /**
+     * Create a new class instance.
+     */
+    public function store($request)
+    {
+        //
+        $validated = $request->validated();
+        $validated['created_at'] = date('Y-m-d');
+
+        try {
+            $id = Restaurant::insertGetId($validated);
+
+            return $this->success('Restaurant success saved', $validated, $id);
+
+        } catch (\Exception $e) {
+            return $this->failed('Restaurant fail to save', $e, $validated);
+        }
+    }
+}
+...
+```
+
+
+
+
 # API Structure and it's explanation
 
 | Method | API Endpoint                | Description                                           |
@@ -114,7 +198,10 @@ php artisan serve
 | PUT    | /menu_items/:id             | Update a menu item                                    |
 | DELETE | /menu_items/:id             | Delete a menu item                                    |
 
-# Run and the APIs
+
+
+
+# Run the APIs
 
 This API using sanctum as authentication, to access every API in this app must login first to get **token** that will be placed on header request
 "Authentication" : API_TOKEN
