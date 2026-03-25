@@ -466,8 +466,8 @@ output: status **200** - Ok
 }
 ```
 
-## List Menu of Restaurant
-enpoint: **GET /restaurants/:id/menu_items**
+## Restaurant's Menu
+enpoint: **GET /restaurants/:id**
 
 ```
 curl --request GET \
@@ -507,6 +507,130 @@ output: status **200** - Ok
   ]
 }
 ```
+
+## Menu List on Restaurant
+can filter by category and name with wildcards
+enpoint: **GET /restaurants/:id/menu_items**
+
+Example using category filter
+```
+curl --request GET \
+  --url 'http://127.0.0.1:8000/restaurants/4/menu_items?category=main' \
+  --header 'Accept: applcation/json' \
+  --header 'Authorization: Bearer 3|anqg0iBoG4cHmv4sgmGXqxHFop6PJXJmY4vuHJHscca83139' \
+  --header 'content-type: application/json'
+```
+
+output
+```
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": 13,
+      "name": "Nasi Goreng Pedas",
+      "description": "",
+      "price": 123400.01,
+      "category": "main",
+      "is_available": 1,
+      "restaurant_id": 4,
+      "created_at": "2026-03-25T00:00:00.000000Z",
+      "updated_at": null
+    }
+  ],
+  "first_page_url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "page": null,
+      "active": false
+    },
+    {
+      "url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+      "label": "1",
+      "page": 1,
+      "active": true
+    },
+    {
+      "url": null,
+      "label": "Next &raquo;",
+      "page": null,
+      "active": false
+    }
+  ],
+  "next_page_url": null,
+  "path": "http://127.0.0.1:8000/restaurants/4/menu_items",
+  "per_page": 10,
+  "prev_page_url": null,
+  "to": 1,
+  "total": 1
+}
+```
+
+
+Example using name filter
+
+```
+curl --request GET \
+  --url 'http://127.0.0.1:8000/restaurants/4/menu_items?name=Nasi' \
+  --header 'Accept: applcation/json' \
+  --header 'Authorization: Bearer 3|anqg0iBoG4cHmv4sgmGXqxHFop6PJXJmY4vuHJHscca83139' \
+  --header 'content-type: application/json'
+```
+
+```
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": 13,
+      "name": "Nasi Goreng Pedas",
+      "description": "",
+      "price": 123400.01,
+      "category": "main",
+      "is_available": 1,
+      "restaurant_id": 4,
+      "created_at": "2026-03-25T00:00:00.000000Z",
+      "updated_at": null
+    }
+  ],
+  "first_page_url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "page": null,
+      "active": false
+    },
+    {
+      "url": "http://127.0.0.1:8000/restaurants/4/menu_items?page=1",
+      "label": "1",
+      "page": 1,
+      "active": true
+    },
+    {
+      "url": null,
+      "label": "Next &raquo;",
+      "page": null,
+      "active": false
+    }
+  ],
+  "next_page_url": null,
+  "path": "http://127.0.0.1:8000/restaurants/5/menu_items",
+  "per_page": 10,
+  "prev_page_url": null,
+  "to": 1,
+  "total": 1
+}
+```
+
 
 ## Update Menu
 endpoint: **PUT /menu_items/:id**
