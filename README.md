@@ -24,16 +24,18 @@ sudo mv composer.phar /usr/local/bin/composer
 Run these command in your terminal
 
 ```
-$ git clone https://github.com/awaludinms/hungryhub-api-2026.git
-$ cd hungryhub-api-2026
-$ composer install
-$ cp .env.example .env
+git clone https://github.com/awaludinms/hungryhub-api-2026.git
+cd hungryhub-api-2026
+composer install
+cp .env.example .env
 ```
 
 ## Genate Encryption Key
 
+Run this command in terminal to generate encryption key on the app
+
 ```
-$ php artisan key:generate
+php artisan key:generate
 ```
 
 ## Database
@@ -41,7 +43,7 @@ $ php artisan key:generate
 Run MariaDB to create database
 
 ```
-$ sudo mysql -u root -p
+sudo mysql -u root -p
 ```
 
 run these command in mysql query line
@@ -80,14 +82,17 @@ And save it
 
 ## Migrate and Database User, Restaurant and Menu Items' Seed
 
-Run Database Migration and Seeders
+Run these command for Database Migration and Seeders
 
 ```
-$ php artisan migrate
-$ php artisan db:seed
+php artisan migrate
+php artisan db:seed
 ```
 
-Run Server
+
+## Run Server
+
+Run this command to run api server
 
 ```
 php artisan serve
