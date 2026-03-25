@@ -113,10 +113,10 @@ app/
  ||==> Utilities/
  ||==> RestaurantUtility.php
  ||==> Restaurant/
- ||==>  ||
- ||==>  ||==> RestaurantStore.php
- ||==>  ||==> RestaurantUpdate.php
- ||==>  ||==> RestaurantAddMenuItem.php
+       ||
+       ||==> RestaurantStore.php
+       ||==> RestaurantUpdate.php
+       ||==> RestaurantAddMenuItem.php
 ```
 
 Those directory tree is made according to route 
