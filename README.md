@@ -30,6 +30,12 @@ $ composer install
 $ cp .env.example .env
 ```
 
+## Genate Encryption Key
+
+```
+$ php artisan key:generate
+```
+
 ## Database
 
 Run MariaDB to create database
