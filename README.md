@@ -218,7 +218,19 @@ With this design, it will be **Clean Code** in controller, **Readable** and **Ea
 # Run the APIs
 
 This API using sanctum as authentication, to access every API in this app must login first to get **token** that will be placed on header request
-"Authentication" : API_TOKEN.
+with "Bearer in front of API_TOKEN" like below
+
+```
+`Authorization: Bearer API_TOKEN`
+```
+
+e.g in curl use
+
+```
+--header 'Authorization: Bearer anqg0iBoG4cHmv4sgmGXqxHFop6PJXJmY4vuHJHscca83139'
+```
+
+
 
 Auth:Sanctum protect protects API endpoint both on **routes/web.php** and **routes/api.php**
 
