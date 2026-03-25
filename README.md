@@ -101,19 +101,18 @@ php artisan serve
 
 # API Structure and it's explanation
 
-| Method | API Endpoint                | Description                                |                                                       |
-| --------| -----------------------------| --------------------------------------------| -------------------------------------------------------|
-| POST   | /login                      | Login to get API token                     |                                                       |
-| POST   | /restaurants                | Create a restaurant                        |                                                       |
-| GET    | /restaurants                | List all restaurants                       |                                                       |
-| GET    | /restaurants/:id            | Get restaurant detail (include menu items) |                                                       |
-| PUT    | /restaurants/:id            | Update a restaurant                        |                                                       |
-| DELETE | /restaurants/:id            | Delete a restaurant                        |                                                       |
-| POST   | /restaurants/:id/menu_items | Add a menu item                            |                                                       |
-| GET    | /restaurants/:id/menu_items |                                            | List menu items (support filter by category and name) |
-| PUT    | /menu_items/:id             | Update a menu item                         |                                                       |
-| DELETE | /menu_items/:id             | Delete a menu item                         |                                                       |
-                                           
+| Method | API Endpoint                | Description                                           |
+| --------| -----------------------------| -------------------------------------------------------|
+| POST   | /login                      | Login to get API token                                |
+| POST   | /restaurants                | Create a restaurant                                   |
+| GET    | /restaurants                | List all restaurants                                  |
+| GET    | /restaurants/:id            | Get restaurant detail (include menu items)            |
+| PUT    | /restaurants/:id            | Update a restaurant                                   |
+| DELETE | /restaurants/:id            | Delete a restaurant                                   |
+| POST   | /restaurants/:id/menu_items | Add a menu item                                       |
+| GET    | /restaurants/:id/menu_items | List menu items (support filter by category and name) |
+| PUT    | /menu_items/:id             | Update a menu item                                    |
+| DELETE | /menu_items/:id             | Delete a menu item                                    |
 
 # Run and the APIs
 
